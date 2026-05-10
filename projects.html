@@ -3,11 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work | Projects Gallery Petevi Foam</title>
+    <title>Our Projects | Petevi Foam Insulation Ajax | Workmanship Excellence</title>
+    <meta name="description" content="View Petevi Foam Insulation's project gallery and video walkthroughs. High-quality spray foam installations in Ajax, Whitby, and the GTA. Professional attic, basement, and commercial work.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .navy-gradient { background: linear-gradient(135deg, #002d62 0%, #001e42 100%); }
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-overlay {
+            background: linear-gradient(to top, rgba(0, 45, 98, 0.95) 0%, rgba(0, 45, 98, 0.4) 50%, transparent 100%);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 4px solid white;
+        }
+        /* Precision Social Icon Styling */
+        .social-icon { 
+            width: 45px; 
+            height: 45px; 
+            object-fit: contain; 
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .social-icon:hover { 
+            transform: translateY(-3px) scale(1.05);
+            background-color: #ffbf00;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
+<body class="bg-slate-50 font-sans text-slate-900 leading-relaxed">
+
     <!-- Navbar Reusable -->
     <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
         <div class="container mx-auto flex items-center justify-between p-4 lg:px-8">
@@ -15,37 +59,177 @@
                 <img src="https://static.wixstatic.com/media/6c3a1c_d6c65b426d864a87af2f1281edee07d4~mv2.png" alt="Petevi Logo" class="h-10 md:h-12 w-auto">
             </a>
             <div class="hidden md:flex items-center gap-8 font-bold text-[#002d62]">
-                <a href="aboutus.html" class="hover:text-[#004a99]">About Us</a>
-                <a href="services.html" class="hover:text-[#004a99]">Services</a>
+                <a href="aboutus.html" class="hover:text-[#004a99] transition-colors">About Us</a>
+                <a href="services.html" class="hover:text-[#004a99] transition-colors">Services</a>
                 <a href="projects.html" class="text-[#004a99]">Projects</a>
-                <a href="ourteam.html" class="hover:text-[#004a99]">Our Team</a>
-                <a href="contactus.html" class="bg-[#ffbf00] px-6 py-2 rounded-full text-[#002d62]">Contact Us</a>
+                <a href="ourteam.html" class="hover:text-[#004a99] transition-colors">Our Team</a>
+                <a href="contactus.html" class="bg-[#ffbf00] px-6 py-2 rounded-full text-[#002d62] shadow-sm hover:bg-yellow-400 transition-all">Contact Us</a>
             </div>
         </div>
     </nav>
 
-    <main class="py-20">
+    <!-- Page Header -->
+    <header class="py-20 navy-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://static.wixstatic.com/media/6c3a1c_930280495286456f9380d547c8dcfdc5~mv2.jpg" alt="Petevi Texture" class="w-full h-full object-cover">
+        </div>
+        <div class="container relative mx-auto px-6 text-center space-y-4">
+            <span class="text-[#ffbf00] font-black uppercase tracking-[0.3em] text-sm italic">The Portfolio</span>
+            <h1 class="text-5xl md:text-6xl font-black italic uppercase leading-tight">Workmanship In <span class="text-[#ffbf00]">Action</span></h1>
+            <p class="text-xl text-blue-100 font-medium max-w-2xl mx-auto italic">Seeing is believing. Watch our certified team install a monolithic thermal barrier.</p>
+        </div>
+    </header>
+
+    <!-- Video Walkthrough Gallery -->
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h1 class="text-4xl font-black text-[#002d62] uppercase mb-12 italic">Workmanship Excellence</h1>
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-1 w-12 bg-[#ffbf00]"></div>
+                <h2 class="text-3xl font-black text-[#002d62] uppercase italic">Video Walkthroughs</h2>
+            </div>
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-4">
-                    <img src="https://static.wixstatic.com/media/6c3a1c_51cc4e3025fd406cba7df97fb4c1a7e0~mv2.jpg" class="rounded-3xl shadow-xl w-full h-96 object-cover">
-                    <h3 class="text-2xl font-black text-[#002d62]">Attic Sealing | Ajax Residence</h3>
-                    <p class="font-bold text-slate-500">Full removal of old insulation and replacement with premium spray foam.</p>
+                <!-- Video 1: Attic Upgrade -->
+                <div class="space-y-6">
+                    <div class="video-container shadow-2xl">
+                        <iframe 
+                            src="https://www.youtube.com/embed/5R7A3ZqO7lY" 
+                            title="Petevi Spray Foam Walkthrough" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-black text-[#002d62] italic uppercase">Attic & Roof Deck Process</h3>
+                        <p class="text-slate-600 font-bold italic mt-2 underline decoration-[#ffbf00] underline-offset-4 decoration-2">
+                            Watch the high-density foam application that creates a monolithic seal in an Ajax home.
+                        </p>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <img src="https://static.wixstatic.com/media/6c3a1c_dbc29a31304740c6b36b856eac8ae1cc~mv2.png" class="rounded-3xl shadow-xl w-full h-96 object-cover">
-                    <h3 class="text-2xl font-black text-[#002d62]">Crawl Space | Whitby Industrial</h3>
-                    <p class="font-bold text-slate-500">Creating a dry, temperature-controlled environment for client storage.</p>
-                </div>
-                <div class="space-y-4">
-                    <img src="https://static.wixstatic.com/media/6c3a1c_122b09d063d54b84b8a57ecf1d9eafc4~mv2.jpeg" class="rounded-3xl shadow-xl w-full h-96 object-cover">
-                    <h3 class="text-2xl font-black text-[#002d62]">Metal Building | Durham Region</h3>
-                    <p class="font-bold text-slate-500">Airtight wall cavity filling for maximum energy efficiency.</p>
+                <!-- Video 2: Foundation Sealing -->
+                <div class="space-y-6">
+                    <div class="video-container shadow-2xl">
+                        <iframe 
+                            src="https://www.youtube.com/embed/L-zL_7fP7mI" 
+                            title="Petevi Foundation Protection" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-black text-[#002d62] italic uppercase">Foundation & Wall Cavity</h3>
+                        <p class="text-slate-600 font-bold italic mt-2 underline decoration-[#ffbf00] underline-offset-4 decoration-2">
+                            Creating an airtight thermal break to stop moisture and drafts from entering the structure.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <main class="py-20 border-t border-slate-100 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-1 w-12 bg-[#ffbf00]"></div>
+                <h2 class="text-3xl font-black text-[#002d62] uppercase italic">Completed Installations</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                
+                <!-- Project: Attic -->
+                <div class="project-card relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-white">
+                    <img src="https://static.wixstatic.com/media/6c3a1c_51cc4e3025fd406cba7df97fb4c1a7e0~mv2.jpg" alt="Petevi Attic Spray Foam Ajax" class="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-10 text-white">
+                        <div class="space-y-2">
+                            <h3 class="text-3xl font-black italic uppercase tracking-tighter">Residential Attic Upgrade</h3>
+                            <div class="h-1 w-16 bg-[#ffbf00]"></div>
+                            <p class="text-blue-50 font-bold max-w-md italic">Ajax: Full insulation removal and precision replacement with premium 2lb spray foam for maximum R-value.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Crawl Space -->
+                <div class="project-card relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-white">
+                    <img src="https://static.wixstatic.com/media/6c3a1c_dbc29a31304740c6b36b856eac8ae1cc~mv2.png" alt="Crawl Space Encapsulation Whitby" class="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-10 text-white">
+                        <div class="space-y-2">
+                            <h3 class="text-3xl font-black italic uppercase tracking-tighter">Foundation Protection</h3>
+                            <div class="h-1 w-16 bg-[#ffbf00]"></div>
+                            <p class="text-blue-50 font-bold max-w-md italic">Whitby Industrial: Monolithic moisture barrier application to safeguard inventory and structure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Commercial -->
+                <div class="project-card relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-white lg:col-span-2">
+                    <img src="https://static.wixstatic.com/media/6c3a1c_122b09d063d54b84b8a57ecf1d9eafc4~mv2.jpeg" alt="Petevi Commercial Spray Foam Application" class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-10 text-white text-center items-center">
+                        <div class="space-y-2">
+                            <h3 class="text-4xl font-black italic uppercase tracking-tighter leading-none">Commercial Thermal Barriers</h3>
+                            <div class="h-1 w-24 bg-[#ffbf00] mx-auto"></div>
+                            <p class="text-blue-50 font-bold max-w-2xl italic mx-auto">Large-scale metal building sealing in the GTA. Engineered for durability, fire-safety, and structural integrity.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
-    <script>lucide.createIcons();</script>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2 space-y-6 text-center lg:text-left">
+                    <img src="https://static.wixstatic.com/media/6c3a1c_d6c65b426d864a87af2f1281edee07d4~mv2.png" alt="Petevi Logo" class="h-10 md:h-12 brightness-0 invert opacity-70 mx-auto lg:mx-0">
+                    <p class="max-w-md font-medium text-slate-400 leading-relaxed italic mx-auto lg:mx-0">
+                        "Professional spray foam insulation services across Ajax and the Greater Toronto Area. Dedicated to structural integrity and energy efficiency."
+                    </p>
+                    
+                    <!-- Fixed Social Icons (Wix Assets) -->
+                    <div class="flex gap-4 items-center justify-center lg:justify-start">
+                        <a href="https://www.facebook.com/sprayfoam.insulation.16/" target="_blank" aria-label="Facebook">
+                            <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="https://www.instagram.com/petevifoaminsulation/" target="_blank" aria-label="Instagram">
+                            <img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d6893330740455c96d218258a458aa4.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="https://www.youtube.com/@edgarmartinez9832" target="_blank" aria-label="Youtube">
+                            <img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1b09fe8b7f04378a9fe076748ad4a6a.png" alt="Youtube" class="social-icon">
+                        </a>
+                        <a href="https://www.tiktok.com/@wix" target="_blank" aria-label="TikTok">
+                            <img src="https://static.wixstatic.com/media/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png" alt="TikTok" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Service Areas</h5>
+                    <ul class="space-y-2 font-bold text-slate-400 text-sm italic">
+                        <li>Ajax, ON</li>
+                        <li>Whitby, ON</li>
+                        <li>Oshawa, ON</li>
+                        <li>Greater Toronto Area</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Navigation</h5>
+                    <ul class="space-y-3 font-bold text-slate-400 text-sm">
+                        <li><a href="aboutus.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="ourteam.html" class="hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="contactus.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-xs font-bold opacity-50 tracking-widest uppercase italic">
+                <p>&copy; 2026 PETEVI WORKMANSHIP EXCELLENCE. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
