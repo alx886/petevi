@@ -3,11 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Petevi Foam Insulation Ajax</title>
+    <title>About Us | Petevi Foam Insulation Ajax | Award Winning Service</title>
+    <meta name="description" content="Discover the Petevi story. Dedicated spray foam specialists in Ajax, ON. Winners of the Quality Business Awards 2024-2026. Commitment to service excellence.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .navy-gradient { background: linear-gradient(135deg, #002d62 0%, #001e42 100%); }
+        .award-card { 
+            background: linear-gradient(to bottom right, #ffffff, #fffbeb);
+            border: 2px solid #ffbf00;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .award-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px -5px rgba(255, 191, 0, 0.4); }
+        
+        .social-icon { 
+            width: 45px; 
+            height: 45px; 
+            object-fit: contain; 
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .social-icon:hover { 
+            transform: translateY(-3px) scale(1.05);
+            background-color: #ffbf00;
+        }
+        .btn-verify {
+            background-color: #004a99;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            transition: all 0.2s;
+            margin-top: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-verify:hover {
+            background-color: #002d62;
+            box-shadow: 0 4px 12px rgba(0, 74, 153, 0.3);
+        }
+    </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
+<body class="bg-slate-50 font-sans text-slate-900 leading-relaxed">
+
     <!-- Navbar Reusable -->
     <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
         <div class="container mx-auto flex items-center justify-between p-4 lg:px-8">
@@ -16,39 +63,148 @@
             </a>
             <div class="hidden md:flex items-center gap-8 font-bold text-[#002d62]">
                 <a href="aboutus.html" class="text-[#004a99]">About Us</a>
-                <a href="services.html" class="hover:text-[#004a99]">Services</a>
-                <a href="projects.html" class="hover:text-[#004a99]">Projects</a>
-                <a href="ourteam.html" class="hover:text-[#004a99]">Our Team</a>
-                <a href="contactus.html" class="bg-[#ffbf00] px-6 py-2 rounded-full text-[#002d62]">Contact Us</a>
+                <a href="services.html" class="hover:text-[#004a99] transition-colors">Services</a>
+                <a href="projects.html" class="hover:text-[#004a99] transition-colors">Projects</a>
+                <a href="ourteam.html" class="hover:text-[#004a99] transition-colors">Our Team</a>
+                <a href="contactus.html" class="bg-[#ffbf00] px-6 py-2 rounded-full text-[#002d62] shadow-sm hover:bg-yellow-400 transition-all">Contact Us</a>
             </div>
         </div>
     </nav>
 
-    <main class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <img src="https://static.wixstatic.com/media/6c3a1c_930280495286456f9380d547c8dcfdc5~mv2.jpg" alt="About Petevi" class="rounded-3xl shadow-2xl">
-                </div>
-                <div class="lg:w-1/2 space-y-6">
-                    <h1 class="text-5xl font-black text-[#002d62] italic uppercase">The Petevi Story</h1>
-                    <div class="h-2 w-24 bg-[#ffbf00]"></div>
-                    <p class="text-xl text-slate-600 font-medium">Based in <span class="font-black">Ajax, Ontario</span>, Petevi Foam Insulation is more than just a contractor—we are your partners in building a more efficient future.</p>
-                    <p class="text-lg text-slate-500">As a family-owned business, we understand the importance of a comfortable, healthy home. We serve the Durham Region and GTA with one goal: delivering industrial-grade insulation quality to every project, whether it's a small attic upgrade or a massive commercial warehouse.</p>
-                    <div class="grid grid-cols-2 gap-8 py-8">
-                        <div>
-                            <span class="block text-4xl font-black text-[#004a99]">100%</span>
-                            <span class="uppercase text-xs font-bold text-slate-400">Local Ajax Family</span>
-                        </div>
-                        <div>
-                            <span class="block text-4xl font-black text-[#004a99]">5.0</span>
-                            <span class="uppercase text-xs font-bold text-slate-400">Client Satisfaction</span>
-                        </div>
+    <!-- Main Content -->
+    <main>
+        <!-- Story Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2 relative group">
+                        <div class="absolute -inset-2 bg-[#ffbf00] rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                        <img src="https://static.wixstatic.com/media/6c3a1c_930280495286456f9380d547c8dcfdc5~mv2.jpg" alt="Petevi Craftsmanship" class="relative rounded-3xl shadow-2xl border-4 border-white object-cover">
+                    </div>
+                    <div class="lg:w-1/2 space-y-6">
+                        <span class="text-[#004a99] font-black uppercase tracking-[0.2em] text-sm italic">Dedication & Excellence</span>
+                        <h1 class="text-5xl font-black text-[#002d62] italic uppercase leading-tight">The Petevi <span class="text-[#ffbf00]">Difference</span></h1>
+                        <div class="h-2 w-24 bg-[#ffbf00]"></div>
+                        <p class="text-xl text-slate-700 font-semibold leading-relaxed">
+                            Based in <span class="text-[#004a99]">Ajax, Ontario</span>, Petevi Foam Insulation is built on an uncompromising commitment to customer service and a job well done.
+                        </p>
+                        <p class="text-lg text-slate-600 font-medium leading-relaxed">
+                            Our dedication to building science is only matched by our commitment to our clients. We understand that a home is more than just a structure—it's an investment and a sanctuary. That is why our team prioritizes transparency and professional integrity above all else. 
+                        </p>
+                        <p class="text-lg text-slate-600 font-medium leading-relaxed">
+                            From the initial consultation to the final quality check, we ensure every monolithic thermal envelope we install is engineered to perfection. We don't just meet industry standards; we set them for the Durham Region.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="py-24 bg-white border-y border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-4xl font-black text-[#002d62] uppercase italic tracking-tight">Three-Year <span class="text-[#ffbf00]">Award Streak</span></h2>
+                    <p class="text-slate-500 font-bold tracking-widest uppercase text-sm italic">Verified by Quality Business Awards</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- 2024 -->
+                    <div class="award-card p-10 rounded-3xl text-center">
+                        <div>
+                            <div class="w-20 h-20 bg-[#ffbf00] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i data-lucide="award" class="text-[#002d62]" size="40"></i>
+                            </div>
+                            <h3 class="text-2xl font-black text-[#002d62] mb-2">2024</h3>
+                            <p class="text-[#004a99] font-black uppercase text-xs tracking-widest mb-4 italic italic">Gold Winner</p>
+                            <p class="text-slate-600 font-bold">Best Insulation Contractor <br/> Ajax & Durham Region</p>
+                        </div>
+                        <a href="https://qualitybusinessawards.ca/" target="_blank" class="btn-verify">
+                            Verify Award <i data-lucide="external-link" size="14"></i>
+                        </a>
+                    </div>
+                    <!-- 2025 -->
+                    <div class="award-card p-10 rounded-3xl text-center border-[#004a99]">
+                        <div>
+                            <div class="w-20 h-20 bg-[#004a99] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i data-lucide="trophy" class="text-white" size="40"></i>
+                            </div>
+                            <h3 class="text-2xl font-black text-[#002d62] mb-2">2025</h3>
+                            <p class="text-[#004a99] font-black uppercase text-xs tracking-widest mb-4 italic">Gold Winner</p>
+                            <p class="text-slate-600 font-bold">Outstanding Customer Service <br/> Durham Region</p>
+                        </div>
+                        <a href="https://qualitybusinessawards.ca/" target="_blank" class="btn-verify">
+                            Verify Award <i data-lucide="external-link" size="14"></i>
+                        </a>
+                    </div>
+                    <!-- 2026 -->
+                    <div class="award-card p-10 rounded-3xl text-center">
+                        <div>
+                            <div class="w-20 h-20 bg-[#ffbf00] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i data-lucide="medal" class="text-[#002d62]" size="40"></i>
+                            </div>
+                            <h3 class="text-2xl font-black text-[#002d62] mb-2">2026</h3>
+                            <p class="text-[#004a99] font-black uppercase text-xs tracking-widest mb-4 italic">Gold Winner</p>
+                            <p class="text-slate-600 font-bold">Master Installer Elite <br/> Quality Business Awards</p>
+                        </div>
+                        <a href="https://qualitybusinessawards.ca/" target="_blank" class="btn-verify">
+                            Verify Award <i data-lucide="external-link" size="14"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <script>lucide.createIcons();</script>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2 space-y-6">
+                    <img src="https://static.wixstatic.com/media/6c3a1c_d6c65b426d864a87af2f1281edee07d4~mv2.png" alt="Petevi Logo" class="h-10 brightness-0 invert opacity-70">
+                    <p class="max-w-md font-medium text-slate-400 leading-relaxed italic">
+                        "Professional spray foam insulation services across Ajax and the Greater Toronto Area. Dedicated to structural integrity and energy efficiency."
+                    </p>
+                    
+                    <!-- Fixed & Updated Social Icons (Exactly 45x45) -->
+                    <div class="flex gap-4 items-center">
+                        <a href="https://www.facebook.com/sprayfoam.insulation.16/" target="_blank" aria-label="Facebook">
+                            <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="https://www.instagram.com/petevifoaminsulation/" target="_blank" aria-label="Instagram">
+                            <img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d6893330740455c96d218258a458aa4.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="https://www.youtube.com/@edgarmartinez9832" target="_blank" aria-label="Youtube">
+                            <img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1b09fe8b7f04378a9fe076748ad4a6a.png" alt="Youtube" class="social-icon">
+                        </a>
+                        <a href="https://www.tiktok.com/@wix" target="_blank" aria-label="TikTok">
+                            <img src="https://static.wixstatic.com/media/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png" alt="TikTok" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Office</h5>
+                    <p class="font-bold text-slate-400 text-sm italic underline decoration-[#ffbf00] underline-offset-4">Ajax, ON L1T 4V4</p>
+                    <p class="font-black text-white text-xl mt-2 tracking-tighter italic uppercase">647-393-3339</p>
+                </div>
+                <div>
+                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Navigation</h5>
+                    <ul class="space-y-3 font-bold text-slate-400">
+                        <li><a href="aboutus.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="ourteam.html" class="hover:text-white transition-colors">Our Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-xs font-bold opacity-50 tracking-widest">
+                <p>&copy; 2026 PETEVI FOAM INSULATION - AJAX, ON. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
