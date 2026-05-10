@@ -4,22 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Petevi Foam Insulation Ajax</title>
+    <meta name="description" content="Get a free spray foam insulation estimate in Ajax, ON. Contact Edgar and the Petevi team for attic, basement, and commercial insulation queries.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .navy-gradient { background: linear-gradient(135deg, #002d62 0%, #001e42 100%); }
+        .social-icon { 
+            width: 45px; 
+            height: 45px; 
+            object-fit: contain; 
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .social-icon:hover { 
+            transform: translateY(-3px) scale(1.05);
+            background-color: #ffbf00;
+        }
+
+        /* Formspree Ajax Message Styling */
+        [data-fs-success], [data-fs-error] {
+            display: none;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: 0.025em;
+        }
+        .fs-success-active {
+            display: block;
+            background-color: #f0fdf4;
+            color: #166534;
+            border: 2px solid #bbf7d0;
+        }
+        .fs-error-active {
+            display: block;
+            background-color: #fef2f2;
+            color: #991b1b;
+            border: 2px solid #fecaca;
+        }
+
+        #other-details-container {
+            display: none;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
-    <!-- Navbar Reusable -->
+<body class="bg-slate-50 font-sans text-slate-900 leading-relaxed italic">
+
+    <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
         <div class="container mx-auto flex items-center justify-between p-4 lg:px-8">
             <a href="index.html">
                 <img src="https://static.wixstatic.com/media/6c3a1c_d6c65b426d864a87af2f1281edee07d4~mv2.png" alt="Petevi Logo" class="h-10 md:h-12 w-auto">
             </a>
             <div class="hidden md:flex items-center gap-8 font-bold text-[#002d62]">
-                <a href="aboutus.html" class="hover:text-[#004a99]">About Us</a>
-                <a href="services.html" class="hover:text-[#004a99]">Services</a>
-                <a href="projects.html" class="hover:text-[#004a99]">Projects</a>
-                <a href="ourteam.html" class="hover:text-[#004a99]">Our Team</a>
-                <a href="contactus.html" class="text-[#004a99] font-black">Contact Us</a>
+                <a href="aboutus.html" class="hover:text-[#004a99] transition-colors">About Us</a>
+                <a href="services.html" class="hover:text-[#004a99] transition-colors">Services</a>
+                <a href="projects.html" class="hover:text-[#004a99] transition-colors">Projects</a>
+                <a href="ourteam.html" class="hover:text-[#004a99] transition-colors text-[#002d62]">Our Team</a>
+                <a href="contactus.html" class="text-[#004a99] font-black underline decoration-[#ffbf00] underline-offset-4">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -27,53 +79,130 @@
     <main class="py-20">
         <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16">
             <div class="space-y-8">
-                <h1 class="text-5xl font-black text-[#002d62] uppercase italic">Get in Touch</h1>
-                <p class="text-xl text-slate-600 font-medium">Ready to seal your home? Our Ajax-based team responds to all inquiries within 24 hours.</p>
+                <h1 class="text-5xl font-black text-[#002d62] uppercase italic leading-tight">Get in <span class="text-[#ffbf00]">Touch</span></h1>
+                <p class="text-xl text-slate-600 font-medium leading-relaxed italic">Ready to seal your home? Our Ajax-based team responds to all inquiries within 24 hours. Let's make your building more efficient.</p>
                 
                 <div class="space-y-6">
                     <div class="flex items-center gap-4">
-                        <div class="p-4 bg-[#004a99] text-white rounded-2xl"><i data-lucide="phone"></i></div>
+                        <div class="p-4 bg-[#004a99] text-white rounded-2xl shadow-lg"><i data-lucide="phone"></i></div>
                         <div>
-                            <p class="uppercase text-xs font-black text-slate-400">Call Us</p>
-                            <p class="text-2xl font-black text-[#002d62]">647-393-3339</p>
+                            <p class="uppercase text-xs font-black text-slate-400 tracking-widest">Direct Line</p>
+                            <a href="tel:6473933339" class="text-2xl font-black text-[#002d62] hover:text-[#004a99]">647-393-3339</a>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <div class="p-4 bg-[#ffbf00] text-[#002d62] rounded-2xl"><i data-lucide="mail"></i></div>
+                        <div class="p-4 bg-[#ffbf00] text-[#002d62] rounded-2xl shadow-lg"><i data-lucide="mail"></i></div>
                         <div>
-                            <p class="uppercase text-xs font-black text-slate-400">Email Us</p>
-                            <p class="text-xl font-bold text-[#002d62]">edgar@petevifoaminsulation.com</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="p-4 bg-slate-900 text-white rounded-2xl"><i data-lucide="map-pin"></i></div>
-                        <div>
-                            <p class="uppercase text-xs font-black text-slate-400">Head Office</p>
-                            <p class="text-lg font-bold text-[#002d62]">Greywardine Lane, Ajax, ON L1T 4V4</p>
+                            <p class="uppercase text-xs font-black text-slate-400 tracking-widest">Support Email</p>
+                            <a href="mailto:edgar@petevifoaminsulation.com" class="text-xl font-bold text-[#002d62] hover:text-[#004a99]">edgar@petevifoaminsulation.com</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl p-10 shadow-2xl">
-                <form action="#" class="space-y-6">
-                    <div>
-                        <label class="block uppercase text-xs font-black text-slate-400 mb-2">Name</label>
-                        <input type="text" class="w-full p-4 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#004a99]">
+            <!-- Functional AJAX Contact Form -->
+            <div class="bg-white rounded-3xl p-10 shadow-2xl border-t-8 border-[#004a99]">
+                <!-- Success/Error Feedback UI -->
+                <div data-fs-success class="fs-success-active">Message Sent! Edgar will contact you shortly.</div>
+                <div data-fs-error class="fs-error-active">Submission Error. Please check your info and try again.</div>
+
+                <form id="contact-form" action="https://formspree.io/f/mykobroa" method="POST" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="uppercase text-[10px] font-black text-slate-400 tracking-widest ml-2">Name</label>
+                            <input type="text" name="full_name" required data-fs-field class="w-full p-4 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#ffbf00] font-bold tracking-tight italic" placeholder="Full Name">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="uppercase text-[10px] font-black text-slate-400 tracking-widest ml-2">Email</label>
+                            <input type="email" name="email_address" required data-fs-field class="w-full p-4 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#ffbf00] font-bold tracking-tight italic" placeholder="Email Address">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block uppercase text-xs font-black text-slate-400 mb-2">Email</label>
-                        <input type="email" class="w-full p-4 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#004a99]">
+
+                    <div class="space-y-2">
+                        <label class="uppercase text-[10px] font-black text-slate-400 tracking-widest ml-2">How can we help?</label>
+                        <select id="service-select" name="service_interest" onchange="toggleDetailsBox()" data-fs-field class="w-full p-4 bg-slate-100 rounded-xl outline-none font-black text-[#002d62] cursor-pointer">
+                            <option value="Attic Upgrade">Attic Insulation Upgrade</option>
+                            <option value="Basement Sealing">Basement Sealing</option>
+                            <option value="Crawl Space">Crawl Space Protection</option>
+                            <option value="Commercial">Commercial/Industrial Project</option>
+                            <option value="Other">Other / General Inquiry</option>
+                        </select>
                     </div>
-                    <div>
-                        <label class="block uppercase text-xs font-black text-slate-400 mb-2">Message</label>
-                        <textarea rows="4" class="w-full p-4 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#004a99]"></textarea>
+
+                    <!-- Dynamic Property Detail Box -->
+                    <div id="other-details-container">
+                        <label class="uppercase text-[10px] font-black text-slate-400 tracking-widest ml-2">Project Details</label>
+                        <textarea name="detailed_needs" rows="3" placeholder="Tell us more about your property or specific needs..." data-fs-field class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-xl outline-none focus:border-[#ffbf00] font-medium text-sm italic"></textarea>
                     </div>
-                    <button class="w-full bg-[#002d62] py-5 rounded-xl text-white font-black uppercase tracking-widest">Send Message</button>
+
+                    <div class="space-y-2">
+                        <label class="uppercase text-[10px] font-black text-slate-400 tracking-widest ml-2">Message</label>
+                        <textarea name="message" rows="4" required data-fs-field class="w-full p-4 bg-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-[#ffbf00] font-bold tracking-tight italic" placeholder="Your questions or comments..."></textarea>
+                    </div>
+
+                    <button type="submit" data-fs-submit-btn class="w-full bg-[#002d62] py-5 rounded-xl text-white font-black uppercase tracking-widest hover:bg-blue-800 shadow-xl transition-all text-xl italic underline decoration-[#ffbf00] disabled:opacity-50">
+                        Send Message
+                    </button>
                 </form>
             </div>
         </div>
     </main>
-    <script>lucide.createIcons();</script>
+
+    <!-- Global Footer -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2 space-y-6 text-center lg:text-left">
+                    <img src="https://static.wixstatic.com/media/6c3a1c_d6c65b426d864a87af2f1281edee07d4~mv2.png" alt="Petevi Logo" class="h-10 brightness-0 invert opacity-70 mx-auto lg:mx-0">
+                    <div class="flex gap-4 items-center justify-center lg:justify-start">
+                        <a href="https://www.facebook.com/sprayfoam.insulation.16/" target="_blank"><img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png" class="social-icon"></a>
+                        <a href="https://www.instagram.com/petevifoaminsulation/" target="_blank"><img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d6893330740455c96d218258a458aa4.png" class="social-icon"></a>
+                        <a href="https://www.youtube.com/@edgarmartinez9832" target="_blank"><img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1b09fe8b7f04378a9fe076748ad4a6a.png" class="social-icon"></a>
+                        <a href="https://www.tiktok.com/@wix" target="_blank"><img src="https://static.wixstatic.com/media/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png" class="social-icon"></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Office</h5>
+                    <p class="font-bold text-slate-400">Ajax, ON L1T 4V4</p>
+                </div>
+                <div>
+                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Navigation</h5>
+                    <ul class="space-y-3 font-bold text-slate-400">
+                        <li><a href="index.html" class="hover:text-white tracking-widest italic text-xs uppercase">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white tracking-widest italic text-xs uppercase">Services</a></li>
+                        <li><a href="projects.html" class="hover:text-white tracking-widest italic text-xs uppercase">Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-xs font-bold opacity-30 tracking-widest">
+                <p>&copy; 2026 PETEVI MASTER INSTALLERS. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Formspree Library & Initialization -->
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contact-form', formId: 'mykobroa' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Dynamic Detail Box for the Contact Page
+        function toggleDetailsBox() {
+            const select = document.getElementById('service-select');
+            const detailsContainer = document.getElementById('other-details-container');
+            
+            if (select.value === 'Other') {
+                detailsContainer.style.display = 'block';
+            } else {
+                detailsContainer.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
