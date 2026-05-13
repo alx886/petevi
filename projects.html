@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Projects | Petevi Foam Insulation Ajax | Workmanship Excellence</title>
-    <meta name="description" content="View Petevi Foam Insulation's project gallery and video walkthroughs. High-quality spray foam installations in Ajax, Whitby, and the GTA. Professional attic, basement, and commercial work.">
+    <meta name="description" content="View Petevi Foam Insulation's comprehensive project gallery. Featuring 20+ photos and 13 video walkthroughs of spray foam installations in Ajax, Whitby, and the GTA.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -18,22 +18,49 @@
         .project-overlay {
             background: linear-gradient(to top, rgba(0, 45, 98, 0.95) 0%, rgba(0, 45, 98, 0.4) 50%, transparent 100%);
         }
-        .video-container {
+        
+        /* Video Card Styling (Since Embedding is Disabled) */
+        .video-card {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
+            cursor: pointer;
             overflow: hidden;
             border-radius: 1.5rem;
-            background: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             border: 4px solid white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .video-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(255, 191, 0, 0.2);
+        }
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 45, 98, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .video-card:hover .play-overlay {
+            background: rgba(0, 45, 98, 0.2);
+        }
+        .play-btn-circle {
+            width: 64px;
+            height: 64px;
+            background: #ffbf00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #002d62;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .video-card:hover .play-btn-circle {
+            transform: scale(1.1);
+        }
+
         /* Precision Social Icon Styling - 45x45 */
         .social-icon { 
             width: 45px; 
@@ -48,9 +75,56 @@
             transform: translateY(-3px) scale(1.05);
             background-color: #ffbf00;
         }
+
+        /* Filter Tab Styling */
+        .filter-btn.active {
+            background-color: #ffbf00;
+            color: #002d62;
+            box-shadow: 0 4px 12px rgba(255, 191, 0, 0.3);
+        }
+        
+        .gallery-item {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Lightbox Modal Styling */
+        #lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            inset: 0;
+            background-color: rgba(0, 30, 66, 0.98);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            cursor: zoom-out;
+        }
+        #lightbox-image {
+            max-width: 95%;
+            max-height: 90vh;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 4px solid white;
+            cursor: default;
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 leading-relaxed">
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white hover:text-[#ffbf00] transition-colors" aria-label="Close Preview">
+            <i data-lucide="x" size="48"></i>
+        </button>
+        <img id="lightbox-image" src="" alt="Project Preview" onclick="event.stopPropagation()">
+    </div>
 
     <!-- Navbar Reusable -->
     <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
@@ -59,11 +133,11 @@
                 <img src="https://static.wixstatic.com/media/6c3a1c_d6c65b426d864a87af2f1281edee07d4~mv2.png" alt="Petevi Logo" class="h-10 md:h-12 w-auto">
             </a>
             <div class="hidden md:flex items-center gap-8 font-bold text-[#002d62]">
-                <a href="aboutus.html" class="hover:text-[#004a99] transition-colors">About Us</a>
-                <a href="services.html" class="hover:text-[#004a99] transition-colors">Services</a>
-                <a href="projects.html" class="text-[#004a99]">Projects</a>
-                <a href="ourteam.html" class="hover:text-[#004a99] transition-colors">Our Team</a>
-                <a href="contactus.html" class="bg-[#ffbf00] px-6 py-2 rounded-full text-[#002d62] shadow-sm hover:bg-yellow-400 transition-all">Contact Us</a>
+                <a href="aboutus.html" class="hover:text-[#004a99] transition-colors text-sm uppercase">About Us</a>
+                <a href="services.html" class="hover:text-[#004a99] transition-colors text-sm uppercase">Services</a>
+                <a href="projects.html" class="text-[#004a99] text-sm uppercase font-black underline decoration-[#ffbf00] underline-offset-4">Projects</a>
+                <a href="ourteam.html" class="hover:text-[#004a99] transition-colors text-sm uppercase">Our Team</a>
+                <a href="contactus.html" class="bg-[#ffbf00] px-6 py-2 rounded-full text-[#002d62] shadow-sm hover:bg-yellow-400 transition-all text-sm uppercase">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -76,99 +150,172 @@
         <div class="container relative mx-auto px-6 text-center space-y-4">
             <span class="text-[#ffbf00] font-black uppercase tracking-[0.3em] text-sm italic">The Portfolio</span>
             <h1 class="text-5xl md:text-6xl font-black italic uppercase leading-tight">Workmanship In <span class="text-[#ffbf00]">Action</span></h1>
-            <p class="text-xl text-blue-100 font-medium max-w-2xl mx-auto italic">Seeing is believing. Watch our certified team install a monolithic thermal barrier.</p>
+            <p class="text-xl text-blue-100 font-medium max-w-2xl mx-auto italic">Explore our site photos and field walkthroughs. Click any item to view.</p>
         </div>
     </header>
 
-    <!-- Video Walkthrough Gallery -->
-    <section class="py-20 bg-white">
+    <!-- Gallery Navigation & Filter Section -->
+    <section class="py-12 bg-white sticky top-[68px] z-40 shadow-sm border-b border-slate-100">
         <div class="container mx-auto px-6">
-            <div class="flex items-center gap-4 mb-12">
-                <div class="h-1 w-12 bg-[#ffbf00]"></div>
-                <h2 class="text-3xl font-black text-[#002d62] uppercase italic">Video Walkthroughs</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Video 1: Attic Upgrade -->
-                <div class="space-y-6">
-                    <div class="video-container shadow-2xl">
-                        <iframe 
-                            src="https://www.youtube.com/embed/5R7A3ZqO7lY" 
-                            title="Petevi Spray Foam Walkthrough" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-black text-[#002d62] italic uppercase">Attic & Roof Deck Process</h3>
-                        <p class="text-slate-600 font-bold italic mt-2 underline decoration-[#ffbf00] underline-offset-4 decoration-2">
-                            Watch the high-density foam application that creates a monolithic seal in an Ajax home.
-                        </p>
-                    </div>
-                </div>
-                <!-- Video 2: Foundation/Crawl Space Sealing (Updated Link) -->
-                <div class="space-y-6">
-                    <div class="video-container shadow-2xl">
-                        <iframe 
-                            src="https://www.youtube.com/embed/hql5YJfD-DY" 
-                            title="Petevi Foundation and Crawl Space Protection" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-black text-[#002d62] italic uppercase">Foundation & Wall Cavity</h3>
-                        <p class="text-slate-600 font-bold italic mt-2 underline decoration-[#ffbf00] underline-offset-4 decoration-2">
-                            Creating an airtight thermal break to stop moisture and drafts from entering the structure.
-                        </p>
-                    </div>
-                </div>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <button onclick="filterGallery('all', event)" class="filter-btn active px-8 py-3 rounded-full font-black uppercase tracking-widest text-xs transition-all border-2 border-transparent bg-slate-100 hover:bg-slate-200">
+                    All Work
+                </button>
+                <button onclick="filterGallery('photo', event)" class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest text-xs transition-all border-2 border-transparent bg-slate-100 hover:bg-slate-200">
+                    Photos
+                </button>
+                <button onclick="filterGallery('video', event)" class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest text-xs transition-all border-2 border-transparent bg-slate-100 hover:bg-slate-200">
+                    Videos
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Projects Grid -->
-    <main class="py-20 border-t border-slate-100 bg-slate-50">
+    <!-- Main Gallery Grid -->
+    <main class="py-16 bg-slate-50">
         <div class="container mx-auto px-6">
-            <div class="flex items-center gap-4 mb-12">
-                <div class="h-1 w-12 bg-[#ffbf00]"></div>
-                <h2 class="text-3xl font-black text-[#002d62] uppercase italic">Completed Installations</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
-                <!-- Project: Attic -->
-                <div class="project-card relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-white">
-                    <img src="https://static.wixstatic.com/media/6c3a1c_51cc4e3025fd406cba7df97fb4c1a7e0~mv2.jpg" alt="Petevi Attic Spray Foam Ajax" class="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-10 text-white">
-                        <div class="space-y-2">
-                            <h3 class="text-3xl font-black italic uppercase tracking-tighter">Residential Attic Upgrade</h3>
-                            <div class="h-1 w-16 bg-[#ffbf00]"></div>
-                            <p class="text-blue-50 font-bold max-w-md italic">Ajax: Full insulation removal and precision replacement with premium 2lb spray foam for maximum R-value.</p>
-                        </div>
-                    </div>
+                <!-- Videos Section (Linked out because embedding is disabled) -->
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/mbZvhhWjbO0" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/mbZvhhWjbO0/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/9-6gWw1Agw8" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/9-6gWw1Agw8/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/EiQN_Rxo3lc" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/EiQN_Rxo3lc/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/buM8wrCsvqw" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/buM8wrCsvqw/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/iVmYowChOJU" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/iVmYowChOJU/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/DR9cXnbeRqc" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/DR9cXnbeRqc/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/G7oHrAkEBfk" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/G7oHrAkEBfk/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/-oYw_HSULcU" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/-oYw_HSULcU/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/umOE5AUJ5bg" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/umOE5AUJ5bg/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/QVpur3Cl3nE" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/QVpur3Cl3nE/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/RW3DRLfpI6I" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/RW3DRLfpI6I/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/DGuo2uDk16I" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/DGuo2uDk16I/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
+                </div>
+                <div class="gallery-item video">
+                    <a href="https://www.youtube.com/shorts/Oedy3VKQtmY" target="_blank" class="video-card block aspect-[9/16]">
+                        <img src="https://img.youtube.com/vi/Oedy3VKQtmY/hqdefault.jpg" class="w-full h-full object-cover">
+                        <div class="play-overlay"><div class="play-btn-circle"><i data-lucide="play" fill="currentColor"></i></div></div>
+                    </a>
                 </div>
 
-                <!-- Project: Crawl Space -->
-                <div class="project-card relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-white">
-                    <img src="https://static.wixstatic.com/media/6c3a1c_dbc29a31304740c6b36b856eac8ae1cc~mv2.png" alt="Crawl Space Encapsulation Whitby" class="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-10 text-white">
-                        <div class="space-y-2">
-                            <h3 class="text-3xl font-black italic uppercase tracking-tighter">Foundation Protection</h3>
-                            <div class="h-1 w-16 bg-[#ffbf00]"></div>
-                            <p class="text-blue-50 font-bold max-w-md italic">Whitby Industrial: Monolithic moisture barrier application to safeguard inventory and structure.</p>
-                        </div>
-                    </div>
+                <!-- Photos Section (Clickable) -->
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/v47zLW1z/petevi-image-1.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </div>
-
-                <!-- Project: Commercial -->
-                <div class="project-card relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-white lg:col-span-2">
-                    <img src="https://static.wixstatic.com/media/6c3a1c_122b09d063d54b84b8a57ecf1d9eafc4~mv2.jpeg" alt="Petevi Commercial Spray Foam Application" class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="project-overlay absolute inset-0 flex flex-col justify-end p-10 text-white text-center items-center">
-                        <div class="space-y-2">
-                            <h3 class="text-4xl font-black italic uppercase tracking-tighter leading-none">Commercial Thermal Barriers</h3>
-                            <div class="h-1 w-24 bg-[#ffbf00] mx-auto"></div>
-                            <p class="text-blue-50 font-bold max-w-2xl italic mx-auto">Large-scale metal building sealing in the GTA. Engineered for durability, fire-safety, and structural integrity.</p>
-                        </div>
-                    </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/zH27SF1W/petevi-image-2.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/MxjnWDvT/petevi-image-3.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/C3spwZHF/petevi-image-4.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/8nCgzKPj/petevi-image-5.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/tTQTCbNY/petevi-image-6.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/WWvQd9Mw/petevi-image-7.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/Kcj3t7Jq/petevi-image-8.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/8nVBW0yn/petevi-image-9.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/FkPmJ4Bs/petevi-image-10.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/6fssZHg/petevi-image-11.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/kVDydS68/petevi-image-12.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/PLL9BFk/petevi-image-13.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/DfWWZ1T6/petevi-image-14.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/dJGCKMZg/petevi-image-15.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/yc6tdbb2/petevi-image-16.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/k2F8Nqyq/petevi-image-17.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/qHNJKL7/petevi-image-18.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/VW41PsnQ/petevi-image-19.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
+                </div>
+                <div class="gallery-item photo">
+                    <img src="https://i.ibb.co/kVQ2SYdM/petevi-image-20.jpg" onclick="openLightbox(this.src)" alt="Petevi Project" class="w-full h-80 object-cover rounded-3xl shadow-lg border-4 border-white hover:scale-105 transition-transform duration-500 cursor-zoom-in">
                 </div>
 
             </div>
@@ -177,50 +324,34 @@
 
     <!-- Global Footer -->
     <footer class="bg-slate-900 text-white py-16">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6 text-center lg:text-left">
             <div class="grid lg:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-2 space-y-6 text-center lg:text-left">
+                <div class="col-span-2 space-y-6">
                     <img src="https://static.wixstatic.com/media/6c3a1c_d6c65b426d864a87af2f1281edee07d4~mv2.png" alt="Petevi Logo" class="h-10 md:h-12 brightness-0 invert opacity-70 mx-auto lg:mx-0">
-                    <p class="max-w-md font-medium text-slate-400 leading-relaxed italic mx-auto lg:mx-0">
+                    <p class="max-w-md font-medium text-slate-400 leading-relaxed italic mx-auto lg:mx-0 text-sm">
                         "Professional spray foam insulation services across Ajax and the Greater Toronto Area. Dedicated to structural integrity and energy efficiency."
                     </p>
-                    
-                    <!-- Fixed Social Icons (45x45 Wix Assets) -->
                     <div class="flex gap-4 items-center justify-center lg:justify-start">
-                        <a href="https://www.facebook.com/sprayfoam.insulation.16/" target="_blank" aria-label="Facebook">
-                            <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png" alt="Facebook" class="social-icon">
-                        </a>
-                        <a href="https://www.instagram.com/petevifoaminsulation/" target="_blank" aria-label="Instagram">
-                            <img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d6893330740455c96d218258a458aa4.png" alt="Instagram" class="social-icon">
-                        </a>
-                        <a href="https://www.youtube.com/@edgarmartinez9832" target="_blank" aria-label="Youtube">
-                            <img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1b09fe8b7f04378a9fe076748ad4a6a.png" alt="Youtube" class="social-icon">
-                        </a>
-                        <a href="https://www.tiktok.com/@wix" target="_blank" aria-label="TikTok">
-                            <img src="https://static.wixstatic.com/media/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png" alt="TikTok" class="social-icon">
-                        </a>
+                        <a href="https://www.facebook.com/sprayfoam.insulation.16/" target="_blank"><img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png" class="social-icon"></a>
+                        <a href="https://www.instagram.com/petevifoaminsulation/" target="_blank"><img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d6893330740455c96d218258a458aa4.png" class="social-icon"></a>
+                        <a href="https://www.youtube.com/@edgarmartinez9832" target="_blank"><img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1b09fe8b7f04378a9fe076748ad4a6a.png" class="social-icon"></a>
+                        <a href="https://www.tiktok.com/@wix" target="_blank"><img src="https://static.wixstatic.com/media/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png/v1/fill/w_76,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7a80704b0d4547c4a6a39347d587411d~mv2.png" class="social-icon"></a>
                     </div>
                 </div>
                 <div>
-                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Service Areas</h5>
-                    <ul class="space-y-2 font-bold text-slate-400 text-sm italic">
-                        <li>Ajax, ON</li>
-                        <li>Whitby, ON</li>
-                        <li>Oshawa, ON</li>
-                        <li>Greater Toronto Area</li>
-                    </ul>
+                    <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Office</h5>
+                    <p class="font-bold text-slate-400">Ajax, ON L1T 4V4</p>
                 </div>
                 <div>
                     <h5 class="font-black uppercase mb-6 tracking-widest text-[#ffbf00]">Navigation</h5>
-                    <ul class="space-y-3 font-bold text-slate-400 text-sm">
+                    <ul class="space-y-3 font-bold text-slate-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="aboutus.html" class="hover:text-white transition-colors">About Us</a></li>
                         <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="ourteam.html" class="hover:text-white transition-colors">Our Team</a></li>
-                        <li><a href="contactus.html" class="hover:text-white transition-colors">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/10 text-center text-xs font-bold opacity-50 tracking-widest uppercase italic">
+            <div class="pt-8 border-t border-white/10 text-center text-xs font-bold opacity-30 tracking-widest">
                 <p>&copy; 2026 PETEVI WORKMANSHIP EXCELLENCE. ALL RIGHTS RESERVED.</p>
             </div>
         </div>
@@ -230,6 +361,44 @@
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });
+
+        // Lightbox Functions for Photos
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-image');
+            img.src = src;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Gallery Filter Function
+        function filterGallery(category, event) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.filter-btn');
+
+            btns.forEach(btn => btn.classList.remove('active'));
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    if (item.classList.contains(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
